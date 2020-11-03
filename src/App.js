@@ -8,11 +8,21 @@ import Word from "./components/Word";
 import Popup from "./components/Popup";
 import Notification from "./components/Notification";
 
-const words = ["application", "programming", "interface", "wizard"];
+const words = [
+  "Germany",
+  "Antananarivo",
+  "Github",
+  "neuefische",
+  "Corona",
+  "Beer",
+  "Puzzle",
+  "Abracadabra",
+  "Magic",
+  "Spaces",
+  "Apple",
+  "Ubuntu",
+];
 let selectedWord = words[Math.floor(Math.random() * words.length)];
-
-// const correctLetters = [];
-// const wrongLetters = [];
 
 function App() {
   const [playable, setPlayable] = useState(true);
@@ -44,6 +54,16 @@ function App() {
     return () => window.removeEventListener("keydown", handleKeydown);
   }, [correctLetters, wrongLetters, playable]);
 
+  function playAgain() {
+    setPlayable(true);
+    //empty Arrays
+    setCorrectLetters([]);
+    setWrongLetters([]);
+
+    const random = Math.floor(Math.random() * words.length);
+    selectedWord = words[random];
+  }
+
   return (
     <>
       <Header />
@@ -51,9 +71,15 @@ function App() {
         <Figure wrongLetters={wrongLetters} />
         <WrongLetters wrongLetters={wrongLetters} />
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
-        <Popup />
-        <Notification showNotification={showNotification} />
       </div>
+      <Popup
+        correctLetters={correctLetters}
+        wrongLetters={wrongLetters}
+        selectedWord={selectedWord}
+        setPlayable={setPlayable}
+        playAgain={playAgain}
+      />
+      <Notification showNotification={showNotification} />
     </>
   );
 }
