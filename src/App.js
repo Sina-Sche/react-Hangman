@@ -9,18 +9,18 @@ import Popup from "./components/Popup";
 import Notification from "./components/Notification";
 
 const words = [
-  "Germany",
-  "Antananarivo",
-  "Github",
+  "germany",
+  "antananarivo",
+  "github",
   "neuefische",
-  "Corona",
-  "Beer",
-  "Puzzle",
-  "Abracadabra",
-  "Magic",
-  "Spaces",
-  "Apple",
-  "Ubuntu",
+  "corona",
+  "beer",
+  "puzzle",
+  "abracadabra",
+  "magic",
+  "spaces",
+  "apple",
+  "ubuntu",
 ];
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 
